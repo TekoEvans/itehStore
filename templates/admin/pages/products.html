@@ -1,0 +1,97 @@
+{% extends 'admin/layouts/base.html' %}
+
+{% block main_title %}
+Tous les articles -
+{% endblock %}
+
+{% block base_content %}
+
+<div class="relative">
+    <div class="py-12 sm:md:lg:xl:px-16 px-4 bg-white z-20 w-full">
+        <div>
+            <h2 class="sm:md:lg:xl:text-3xl text-xl font-bold text-center mb-4 text-slate-700">Gestion des produits</h2>
+        </div>
+        <div class="absolute sm:md:lg:xl:top-12 top-24 right-0 sm:md:lg:xl:right-4 justify-center flex items-center sm:md:lg:xl:space-x-4 w-full sm:md:lg:xl:w-auto">
+            <div class="relative rounded-2xl hidden sm:md:lg:xl:flex z-0">
+                <div class="mx-auto max-w-md">
+                    <form action="/admin/products" method="POST" class="relative mx-auto w-max">
+                        <input type="search" name="searchText" {% if search_text %} autofocus value="{{ search_text }}"
+                            {% endif %}
+                            class="peer cursor-pointer relative text-slate-700 z-10 h-10 w-24 rounded-xl border border-transparent bg-transparent outline-none focus:w-full focus:cursor-text focus:border-blue-300 focus:pl-10 focus:pr-4 pl-28 -mr-[4.5rem] focus:mr-0 duration-200" />
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-y-0 my-auto text-slate-500 h-8 w-12 px-3.5 peer-focus:border-blue-300 peer-focus:stroke-blue-500 duration-300"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </form>
+                </div>
+            </div>
+            <form method="POST" action='/admin/products' class="w-full flex justify-center items-center sm:md:lg:xl:hidden mt-2">
+                <div class="relative mx-auto w-5/6 flex items-center justify-center">
+                    <input placeholder="Rechercher..." type="search" name="searchText" {% if search_text %} autofocus value="{{ search_text }}" {% endif %}
+                        class="peer pl-3 text-slate-700 relative h-10 w-full rounded-lg border bg-transparent outline-none focus:cursor-text focus:border-blue-300 duration-300" />
+                </div>
+            </form>
+            <label class="cursor-pointer rounded-full sm:md:lg:xl:rounded-none bg-blue-400 sm:md:lg:xl:bg-transparent toast toast-end sm:md:lg:xl:flex-row sm:md:lg:xl:static m-4 sm:md:lg:xl:m-0 right-8 sm:md:lg:xl:right-0 bottom-8 sm:md:lg:xl:bottom-0 sm:md:lg:xl:p-0 flex z-20 items-center text-slate-100 sm:md:lg:xl:text-slate-500 hover:text-blue-500 duration-300"
+                for="productAdd">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
+                    stroke="currentColor" class="w-6 h-6 sm:md:lg:xl:stroke-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                <span class="hidden sm:md:lg:xl:flex">
+                    Nouveau produit
+                </span>
+            </label>
+        </div>
+        <div class="text-blue-500 text-lg font-medium flex items-center space-x-4 mt-24 sm:md:lg:xl:mt-0">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                    stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            </span>
+            <h3>
+                Tous vos articles
+            </h3>
+        </div>
+        {% if articles == [] and search_text %}
+        <div class="text-slate-700 text-center w-full text-lg font-medium flex items-center justify-center">Aucun
+            résultat.</div>
+        {% else %}
+        <div class="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+            {% for article in articles %}
+            {% with article=article %}
+            {% include 'admin/modules/product.html' %}
+            {% endwith %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% for article in articles %}
+<input type="checkbox" id="{{ article.id }}" class="modal-toggle" />
+<div class="modal">
+    <div class="relative max-w-5xl bg-black bg-opacity-30 modal-box">
+        <label for="{{ article.id }}"
+            class="absolute z-50 top-2 right-2 text-white bg-green-400 border-transparent btn btn-sm btn-circle hover:bg-opacity-30 hover:border-transparent">✕</label>
+        {% with article=article %}
+        {% include 'admin/forms/product/edit.html' %}
+        {% endwith %}
+    </div>
+</div>
+{% endfor %}
+
+<input type="checkbox" id="productAdd" class="modal-toggle" />
+<div class="modal">
+    <div class="relative max-w-5xl bg-black bg-opacity-30 modal-box">
+        <label for="productAdd"
+            class="absolute z-50 top-2 right-2 text-white bg-green-400 border-transparent btn btn-sm btn-circle hover:bg-opacity-30 hover:border-transparent">✕</label>
+        {% with default='img/default.svg' %}
+        {% include 'admin/forms/product/add.html' %}
+        {% endwith %}
+    </div>
+</div>
+
+{% endblock %}

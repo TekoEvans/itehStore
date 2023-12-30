@@ -1,0 +1,37 @@
+{% extends 'app/layouts/base.html' %}
+
+{% block main_title %}
+    {{ product.name }} -
+{% endblock %}
+
+{% block base_content %}
+
+<div class="">
+    <div class="bg-white rounded-2xl my-2 py-1">
+        <main class="sm:md:lg:xl:my-8 w-full mx-auto">
+            <div class="mx-auto px-6">
+                <div class="sm:md:lg:xl:mt-16">
+                    {% with title=product.name %}
+                        {% include('app/components/title.html')%}
+                    {% endwith %}
+                    {% with article=product %}
+                        {% include 'app/modules/product/large.html' %}
+                    {% endwith %}
+                    {% with title="Autres articles" %}
+                        {% include('app/components/title.html')%}
+                    {% endwith %}
+                    </div>
+                    <div class="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+                        {% for article in articles %}
+                            {% with article=article  %}
+                                {% include 'app/modules/product/medium.html' %}
+                            {% endwith %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+{% endblock %}

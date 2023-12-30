@@ -1,0 +1,37 @@
+<div class="w-80 mx-auto max-h-[48rem] hover:-translate-y-2 duration-300 border group rounded-xl overflow-hidden">
+    <div class="shadow-md rounded-lg max-w-sm border-gray-700">
+        <span class="rounded-xl overflow-hidden">
+            <img class="rounded-xl p-2 group-hover:scale-100 duration-500 object-cover scale-105 max-h-[23rem] min-h-[23rem] w-full"
+                src="{{ url_for('static', filename=article.getImage('main')) }}" alt="product image">
+        </span>
+        <div class="px-5 pt-5 space-y-3 group-hover:-translate-y-1">
+            <span>
+                <h3 class="text-slate-700 text-2xl text-start font-light line-clamp-2 h-14">{{ article.name }}</h3>
+            </span>
+            <div class="flex items-center justify-center">
+                <span class="text-xl font-semibold text-blue-500">FCFA {{ article.getPrice() }}</span>
+            </div>
+            <div class="flex items-center justify-evenly border-t py-4 space-x-4">
+                <label for="deleteModal"
+                    class="flex justify-center p-2 font-medium bg-red-500 hover:text-slate-700 cursor-pointer rounded-lg shadow-md duration-150 text-white hover:bg-gray-50">
+                    Supprimer
+                </label>
+                <label for="{{ article.id }}"
+                    class="flex justify-center p-2 font-medium bg-orange-500 hover:text-slate-700 cursor-pointer rounded-lg shadow-md duration-150 text-white hover:bg-gray-50">
+                    Modifier
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="checkbox" id="{{ article.id }}" class="modal-toggle" />
+<div class="modal">
+    <div class="relative max-w-5xl bg-black bg-opacity-30 modal-box">
+        <label for="{{ article.id }}"
+            class="absolute z-50 top-2 right-2 text-white bg-green-400 border-transparent btn btn-sm btn-circle hover:bg-opacity-30 hover:border-transparent">✕</label>
+        {% with article=article %}
+        {% include 'admin/forms/product/edit.html' %}
+        {% endwith %}
+    </div>
+</div>
+{% include 'admin/components/delete_modal.html' %}

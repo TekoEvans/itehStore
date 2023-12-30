@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block main_content %}
+
+    <div class="h-full w-full flex flex-col justify-between">
+        <div class="sticky top-0 z-30">
+            {% include 'app/components/navbar.html' %}
+        </div>
+        <div class="w-full">
+            <main class="container mx-auto rounded-2xl min-h-[68.4vh]">
+                 {% block base_content %} {% endblock base_content %}
+            </main>
+        </div>
+        <div>
+            {% include 'app/components/footer.html' %}
+        </div>
+    </div>
+
+{% endblock %}

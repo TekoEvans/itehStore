@@ -1,0 +1,39 @@
+username
+app_email
+password
+logo
+
+home :
+    app_name
+    header_welcome_sentence
+    header_img
+
+about :
+    about_sentence
+    img
+
+contact :
+    app_email
+    img
+
+user : id name, email, password, logo, header_img, about_img, contact_img, welcome, about, map, facebook, twitter, instagram, whatsapp
+
+product : id name, price, img1, img2, img3, img4, img4, img5, img6
+
+
+{
+    "name" : "ITechStore",
+    "email" : "itechstore@gmail.com",
+    "map" : "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6113711052626!2d1.2496109147689431!3d6.1827377955239395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x84315b7bcd5c2370!2zNsKwMTAnNTcuOSJOIDHCsDE1JzA2LjUiRQ!5e0!3m2!1sfr!2stg!4v1656602720439!5m2!1sfr!2stg",
+    "whatsapp" : "https://wa.me/22892583948",
+    "facebook" : "https://www.facebook.com/profile.php?id=100040636905785",
+    "instagram" : "https://instagram.com/itech_store_2021?igshid=YmMyMTA2M2Y=",
+    "twitter" : "https://mobile.twitter.com/chris_jondoh",
+    "logo" : "img/society/logo.png",
+    "imgAbout" : "img/society/about.png",
+    "imgHeader" : "img/society/header.png",
+    "imgContact" : "img/society/contact.png",
+    "contactText" : "Contactez nous par email à l'adresse itechstore@gmail.com !",
+    "aboutText" : "Nous sommes Itechstore !",
+    "welcomeText" : "Nous sommes une boutique specialisée dans la vente de téléphones portables, PC portatifs et autres accessoires informatiques et electroniques. Avec <strong>ITechStore</strong> vous pouvez faire des achats sur comandes, simplement et à tout moment !"
+}

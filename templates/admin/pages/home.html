@@ -1,0 +1,41 @@
+{% extends 'admin/layouts/base.html' %}
+
+{% block main_title %}
+    Panneau d'administration -
+{% endblock %}
+
+{% block base_content %}
+
+<main class="h-full w-full flex flex-col justify-between py-6 sm:md:lg:xl:py-12 sm:md:lg:xl:px-16 px-4">
+    <div>
+        <h2 class="sm:md:lg:xl:text-3xl text-xl font-bold text-center sm:md:lg:xl:mb-4 mb-8 text-slate-700">Aperçu des pages</h2>
+    </div>
+    <div class="w-full space-y-8">
+        {% with title="Page d'Accueil" %}
+        {% include('admin/components/title.html')%}
+        {% endwith %}
+        <div class="w-[95%] mx-auto border my-4 rounded-lg">
+            {% include('admin/pages/subpages/home.html')%}
+        </div>
+        {% with title="Page des Produits" %}
+        {% include('admin/components/title.html')%}
+        {% endwith %}
+        <div class="w-[95%] mx-auto border my-4 rounded-lg">
+            {% include('admin/pages/subpages/products.html')%}
+        </div>
+        {% with title="Page d'un Produit" %}
+        {% include('admin/components/title.html')%}
+        {% endwith %}
+        <div class="w-[95%] mx-auto border my-4 rounded-lg">
+            {% include('admin/pages/subpages/product.html')%}
+        </div>
+        {% with title="Page d'A propos" %}
+        {% include('admin/components/title.html')%}
+        {% endwith %}
+        <div class="w-[95%] mx-auto border my-4 rounded-lg">
+            {% include('admin/pages/subpages/about.html')%}
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+<input type="checkbox" id="deleteModal" class="modal-toggle" />
+<div class="modal modal-bottom sm:modal-middle">
+    <div class="text-gray-800 bg-white modal-box">
+        <p class="w-full text-lg font-bold text-center">Confirmer la suppression </span>
+        <p class="py-4 text-center">
+            Voulez-vous vraiment supprimer cet article ?
+        </p>
+        <div class="flex justify-center items-center modal-action">
+            <label for="deleteModal"
+                class="flex justify-center px-4 py-3 text-white font-medium bg-green-400 rounded-lg shadow-md duration-150 cursor-pointer sm:md:xl:lg:px-5 sm:md:xl:lg:w-32 hover:text-slate-700 hover:bg-gray-50">Annuler</label>
+            <a type="button" href="/admin/product/delete/{{ article.id }}"
+                class="flex justify-center px-4 py-3 text-white font-medium bg-red-400 rounded-lg shadow-md duration-150 sm:md:xl:lg:px-5 sm:md:xl:lg:w-32 hover:text-slate-700 hover:bg-gray-50">
+                Supprimer
+            </a>
+        </div>
+    </div>
+</div>

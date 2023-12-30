@@ -1,0 +1,40 @@
+{% extends 'app/layouts/base.html' %}
+
+{% block main_title %}
+    Nos produits -
+{% endblock %}
+
+{% block base_content %}
+
+<div class="">
+    <div class="bg-white rounded-2xl my-2 py-1">
+        <main class="sm:md:lg:xl:my-8 w-full mx-auto">
+            <div class="mx-auto px-6">
+                <div class="sm:md:lg:xl:mt-16 w-full">
+                    {% if search_text %}
+                    {% with title="Résultat(s) de la recherche" %}
+                        {% include('app/components/title.html')%}
+                    {% endwith %}
+                    {% else %}
+                    {% with title="Tous nos produits" %}
+                        {% include('app/components/title.html')%}
+                    {% endwith %}
+                    {% endif %}
+                    {% if articles == [] %}
+                        <div class="text-slate-700 text-center w-full text-lg font-medium flex items-center justify-center">Aucun résultat.</div>
+                    {% else %}
+                    <div class="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+                        {% for article in articles %}
+                            {% with article=article  %}
+                                {% include 'app/modules/product/medium.html' %}
+                            {% endwith %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+{% endblock %}

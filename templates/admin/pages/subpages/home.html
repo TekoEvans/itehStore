@@ -1,0 +1,87 @@
+<div class="">
+    <div class="bg-white">
+        <div class="my-8 w-full mx-auto">
+            <div class=" mx-auto px-6">
+                <div class="h-[50vh] rounded-md overflow-hidden bg-cover bg-center"
+                    style="background-image: url('../static/img/society/header.png')">
+                    <div class="bg-gray-900 bg-opacity-30 flex items-center h-full">
+                        <div class="px-10 max-w-xl bg-white bg-opacity-30 backdrop-blur-sm p-4 mx-4 rounded-lg">
+                            <span class="text-2xl text-white font-semibold">Boutique {{ society['name'] }}</span>
+                            <div class="h-2 w-4 bg-blue-500 mt-2 mb-4"></div>
+                            <p class="mt-2 text-slate-100">
+                                {{ society['welcomeText'] }}
+                            </p>
+                            <a href="#"
+                                class="flex justify-center w-max p-2 font-medium bg-blue-500 hover:text-slate-700 cursor-pointer rounded-lg shadow-md duration-150 sm:md:xl:lg:px-5 text-white hover:bg-gray-50 mt-6">
+                                <span>Voir tous nos produits</span>
+                                <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path d="M17 8l4 4m0 0l-4 4m4-4span"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <div class="text-blue-500 text-lg font-medium flex items-center space-x-4">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                                stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                        <span>
+                            Plus récents
+                        </span>
+                    </div>
+                    <div class="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+                        <div class="w-80 mx-auto max-h-[48rem] hover:-translate-y-2 duration-300 border group rounded-xl overflow-hidden">
+                            <div class="shadow-md rounded-lg max-w-sm border-gray-700">
+                                <a href="/admin#largerProduct" class="rounded-xl overflow-hidden">
+                                    <img class="rounded-xl object-cover p-2 group-hover:scale-100 duration-500 scale-105 max-h-[23rem] min-h-[23rem] w-full"
+                                        src="{{ url_for('static', filename='img/samples/1.png') }}" alt="product image">
+                                </a>
+                                <div class="px-5 pt-5 pb-5 space-y-3 group-hover:-translate-y-1">
+                                    <a href="/admin#largerProduct">
+                                        <span class="text-slate-700 text-2xl text-start font-light line-clamp-2 h-14">
+                                            IPhone 13 
+                                        </span>
+                                    </a>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-semibold text-blue-500">FCFA 750000</span>
+                                        <span
+                                            class="flex justify-center w-max p-2 font-medium bg-blue-500 hover:text-slate-700 cursor-pointer rounded-lg shadow-md duration-150 sm:md:xl:lg:px-5 text-white hover:bg-gray-50">
+                                            Commander
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-80 mx-auto max-h-[48rem] hover:-translate-y-2 duration-300 border group rounded-xl overflow-hidden">
+                            <div class="shadow-md rounded-lg max-w-sm border-gray-700">
+                                <a href="/admin#largerProduct" class="rounded-xl overflow-hidden">
+                                    <img class="rounded-xl object-cover p-2 group-hover:scale-100 duration-500 scale-105 max-h-[23rem] min-h-[23rem] w-full"
+                                        src="{{ url_for('static', filename='img/samples/2.png') }}" alt="product image">
+                                </a>
+                                <div class="px-5 pt-5 pb-5 space-y-3 group-hover:-translate-y-1">
+                                    <a href="/admin#largerProduct">
+                                        <span class="text-slate-700 text-2xl text-start font-light line-clamp-2 h-14">
+                                            IPhone R
+                                        </span>
+                                    </a>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-semibold text-blue-500">FCFA 590000</span>
+                                        <span
+                                            class="flex justify-center w-max p-2 font-medium bg-blue-500 hover:text-slate-700 cursor-pointer rounded-lg shadow-md duration-150 sm:md:xl:lg:px-5 text-white hover:bg-gray-50">
+                                            Commander
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

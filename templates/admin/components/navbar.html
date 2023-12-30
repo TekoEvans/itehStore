@@ -1,0 +1,35 @@
+<header class="header bg-white shadow-md text-slate-600 flex flex-col sm:md:lg:xl:flex-row items-center justify-between px-8 py-3 sm:md:lg:xl:py-0 sm:md:lg:xl:space-y-0">
+    <span class="sm:md:lg:xl:w-3/12 w-full">
+        <a href="/" class="flex items-center justify-center sm:md:lg:xl:justify-start">
+            <img class="w-auto sm:md:lg:xl:h-12 h-6" src="{{ url_for('static', filename=society['logo']) }}" alt="ITechStore Logo" />
+            <h1 class="sm:md:lg:xl:text-3xl text-md font-light mx-2 hover:text-blue-500 duration-200">{{ society['name'] }}</h1>
+            <span class="italic sm:md:lg:xl:mt-3 text-sm sm:md:lg:xl:text-md">Panneau d'administration</span>
+        </a>
+    </span>
+    <nav class="nav sm:md:lg:xl:text-lg my-2">
+        <div class="flex items-center space-x-2 sm:md:lg:xl:space-x-0">
+            <a href="/admin"
+                class="sm:md:lg:xl:p-4 sm:md:lg:xl:border-b-2 sm:md:lg:xl:border-blue-500 {% if home %} text-blue-500 {% else %} sm:md:lg:xl:border-opacity-0 hover:text-blue-500 text-slate-600 {% endif %} hover:border-opacity-100 duration-200 cursor-pointer">
+                <span>Accueil</span>
+            </a>
+            <a href="/admin/society"
+                class="sm:md:lg:xl:p-4 sm:md:lg:xl:border-b-2 sm:md:lg:xl:border-blue-500 {% if main %} text-blue-500 {% else %} sm:md:lg:xl:border-opacity-0 hover:text-blue-500 text-slate-600 {% endif %} hover:border-opacity-100 duration-200 cursor-pointer">
+                <span>Société</span>
+            </a>
+            <a span href="/admin/products"
+                class="sm:md:lg:xl:p-4 sm:md:lg:xl:border-b-2 sm:md:lg:xl:border-blue-500 {% if product %} text-blue-500 {% else %} sm:md:lg:xl:border-opacity-0 hover:text-blue-500 text-slate-600 {% endif %} hover:border-opacity-100 duration-200 cursor-pointer">
+                <span>Produits</span>
+            </a>
+        </div>
+    </nav>
+    <form action="/admin/logout" method="POST" class="sm:md:lg:xl:w-3/12 w-full flex items-center justify-center sm:md:lg:xl:justify-end h-full sm:md:lg:xl:mt-1 space-x-2 sm:md:lg:xl:space-x-0">
+        <a href="/admin/setting"
+            class="sm:md:lg:xl:p-4 border-b-2 border-green-500 border-opacity-0 hover:text-green-500 text-slate-600 hover:border-opacity-100 duration-200 cursor-pointer">
+            <span>Paramètres de compte</span>
+        </a>
+        <button type="submit"
+            class="sm:md:lg:xl:p-4 border-b-2 border-red-500 border-opacity-0 hover:text-red-500 text-slate-600 hover:border-opacity-100 duration-200 cursor-pointer">
+            <span>Se déconnecter</span>
+        </button>
+    </form>
+</header>

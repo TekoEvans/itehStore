@@ -1,0 +1,24 @@
+<form action="/admin/login" method="POST" class="py-12 px-12 bg-white rounded-2xl shadow-xl z-20 w-full">
+    <div>
+        <h2 class="sm:md:lg:xl:text-3xl text-xl font-bold text-center mb-4 text-slate-700">Se connecter</h2>
+    </div>
+    {% if error %}
+    <div class="bg-red-400 rounded-lg w-full p-1 my-4 text-center mx-auto text-white">
+        {{ error }}
+    </div>
+    {% endif %}
+    <div class="space-y-4">
+        <input type="text" placeholder="Nom d'utilisateur" name="name" required
+            class="block  text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+        <input type="password" placeholder="Password" name="password" required
+            class="block  text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+    </div>
+    <div class="text-center mt-6 flex flex-col items-center justify-center">
+        <button type="submit"
+            class="flex justify-center w-2/3 p-2 font-medium bg-blue-500 hover:text-slate-700 cursor-pointer rounded-lg shadow-md duration-150 sm:md:xl:lg:px-5 text-white hover:bg-gray-50">Se
+            connecter</button>
+        <p class="mt-4 text-sm text-slate-700">Retourner sur le <a href="/"
+                class="underline cursor-pointer text-blue-500"> site principal</a>
+        </p>
+    </div>
+</form>

@@ -1,0 +1,154 @@
+<form method="POST" action="/admin/society" enctype="multipart/form-data"
+    class="py-12 bg-white z-20 w-full sm:md:lg:xl:px-16 px-4">
+    <div>
+        <h2 class="sm:md:lg:xl:text-3xl text-xl font-bold text-center sm:md:lg:xl:mb-4 mb-8 text-slate-700">
+            Configuration des paramètres du site principal
+        </h2>
+    </div>
+    <div class="space-y-8">
+        <div class="mt-8">
+            {% with title="Général" %}
+            {% include('admin/components/title.html')%}
+            {% endwith %}
+        </div>
+        <div class="sm:md:lg:xl:flex sm:md:lg:xl:space-x-4 space-y-4 sm:md:lg:xl:space-y-0 px-4 sm:md:lg:xl:px-16">
+            <div class="sm:md:lg:xl:w-1/3 w-full">
+                <div class="w-full">
+                    <label class="text-gray-600 text-md mx-2 font-light" for="logoUpload">Logo</label>
+                    <div class="p-4 w-full bg-white rounded-md border">
+                        <label for="logoUpload" class="flex flex-col items-start cursor-pointer">
+                            <img src="{{ url_for('static', filename=society['logo']) }}"
+                                class="object-contain w-full h-[11.5rem]" id="logoImg" />
+                        </label>
+                        <input id="logoUpload" type="file" class="hidden" name="logo" accept="image/*" />
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-4 sm:md:lg:xl:w-2/3">
+                <div class="w-full">
+                    <label for="name" class="text-gray-600 text-md mx-2 font-light">Nom de la société</label>
+                    <input required type="text" placeholder="Nom de la socitété" value="{{ society['name'] }}"
+                        name="name" minlength="3" id="name"
+                        class="block text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+                </div>
+                <div class="w-full">
+                    <label for="email" class="text-gray-600 text-md mx-2 font-light">Email de contact</label>
+                    <input required type="email" placeholder="Email de la socitété" value="{{ society['email'] }}"
+                        name="email" id="email"
+                        class="block text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+                </div>
+                <div class="w-full">
+                    <label for="map" class="text-gray-600 text-md mx-2 font-light">Google Map adresse HTTPS</label>
+                    <input required type="url" placeholder="Localisation(Ex:https://www.google.com/maps/api...)"
+                        name="map" value="{{ society['map'] }}" id="map"
+                        class="block text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+                </div>
+            </div>
+        </div>
+        <div class="mt-8">
+            {% with title="Social" %}
+            {% include('admin/components/title.html')%}
+            {% endwith %}
+        </div>
+        <div class="sm:md:lg:xl:space-x-4 sm:md:lg:xl:flex space-y-4 sm:md:lg:xl:space-y-0 px-4 sm:md:lg:xl:px-16">
+            <div class="w-full">
+                <label for="whatsapp" class="text-gray-600 text-md mx-2 font-light">WhatsApp</label>
+                <input required type="url" id="whatsapp" placeholder="Lien WhatsApp" value="{{ society['whatsapp'] }}"
+                    name="whatsapp"
+                    class="block text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+            </div>
+            <div class="w-full">
+                <label for="facebook" class="text-gray-600 text-md mx-2 font-light">Facebook</label>
+                <input id="facebook" required type="url" placeholder="Lien Facebook" value="{{ society['facebook'] }}"
+                    name="facebook"
+                    class="block text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+            </div>
+        </div>
+        <div class="sm:md:lg:xl:space-x-4 sm:md:lg:xl:flex space-y-4 sm:md:lg:xl:space-y-0 px-4 sm:md:lg:xl:px-16">
+            <div class="w-full">
+                <label for="instagram" class="text-gray-600 text-md mx-2 font-light">Instagram</label>
+                <input required type="url" placeholder="Lien Instagram" value="{{ society['instagram'] }}"
+                    name="instagram" id="instagram"
+                    class="block text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+            </div>
+            <div class="w-full">
+                <label for="twitter" class="text-gray-600 text-md mx-2 font-light">Twitter</label>
+                <input id="twitter" required type="url" placeholder="Lien Twitter" value="{{ society['twitter'] }}"
+                    name="twitter"
+                    class="block text-slate-700 text-md py-3 px-4 rounded-lg w-full border outline-none" />
+            </div>
+        </div>
+        <div class="sm:md:lg:xl:space-x-4 sm:md:lg:xl:flex space-y-4 sm:md:lg:xl:space-y-0 px-4 sm:md:lg:xl:px-0">
+            <div class="sm:md:lg:xl:w-1/2 sm:md:lg:xl:max-h-[16rem]">
+                <div class="my-4">
+                    {% with title="Page : Accueil" %}
+                    {% include('admin/components/title.html')%}
+                    {% endwith %}
+                </div>
+                <div class="space-y-4 sm:md:lg:xl:pl-16 mt-8 sm:md:lg:xl:mt-0">
+                    <div class="w-full">
+                        <label for="welcomeText" class="text-gray-600 text-md mx-2 font-light">
+                            Mots de bienvenue
+                        </label>
+                        <textarea type="text" id="welcomeText" placeholder="Mot de bienvenue" name="welcomeText"
+                            class="block text-slate-700 text-md py-3 px-4 max-h-[16rem] min-h-[16rem] rounded-lg w-full border outline-none">{{ society['welcomeText'] }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="sm:md:lg:xl:w-1/2 w-full">
+                <div class="sm:md:lg:xl:mt-16 sm:md:lg:xl:pr-16">
+                    <div class="w-full">
+                        <label for="headerUpload" class="text-gray-600 text-md mx-2 font-light">
+                            Image principale
+                        </label>
+                        <div class="p-4 w-full bg-white rounded-md border">
+                            <label for="headerUpload" class="flex flex-col items-center cursor-pointer">
+                                <img src="{{ url_for('static', filename=society['imgHeader']) }}"
+                                    class="object-cover rounded-lg w-full h-[14rem]" id="headerImg" />
+                            </label>
+                            <input id="headerUpload" type="file" class="hidden" name="header" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sm:md:lg:xl:space-x-4 sm:md:lg:xl:flex space-y-4 sm:md:lg:xl:space-y-0 px-4 sm:md:lg:xl:px-0">
+            <div class="sm:md:lg:xl:w-1/2 sm:md:lg:xl:max-h-[16rem]">
+                <div class="my-4">
+                    {% with title="Page : A propos" %}
+                    {% include('admin/components/title.html')%}
+                    {% endwith %}
+                </div>
+                <div class="space-y-4 sm:md:lg:xl:pl-16 mt-8 sm:md:lg:xl:mt-0">
+                    <div class="w-full">
+                        <label for="aboutText" class="text-gray-600 text-md mx-2 font-light">
+                            A propos
+                        </label>
+                        <textarea type="text" id="aboutText" placeholder="A propos de nous" name="aboutText"
+                            class="block text-slate-700 text-md py-3 px-4 max-h-[16rem] min-h-[16rem] rounded-lg w-full border outline-none">{{ society['aboutText'] }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="sm:md:lg:xl:w-1/2 w-full">
+                <div class="sm:md:lg:xl:mt-16 sm:md:lg:xl:pr-16">
+                    <div class="w-full">
+                        <label for="aboutUpload" class="text-gray-600 text-md mx-2 font-light">
+                            Image principale
+                        </label>
+                        <div class="p-4 w-full bg-white rounded-md border">
+                            <label for="aboutUpload" class="flex flex-col items-center cursor-pointer">
+                                <img src="{{ url_for('static', filename=society['imgAbout']) }}"
+                                    class="object-cover rounded-lg w-full h-[14rem]" id="aboutImg" />
+                            </label>
+                            <input id="aboutUpload" type="file" class="hidden" name="about" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-6 w-1/3 mx-auto">
+        <button type="submit"
+            class="flex justify-center px-4 py-3 text-white font-medium bg-blue-500 rounded-lg shadow-md duration-150 sm:md:xl:lg:px-5 w-full hover:text-slate-700 hover:bg-gray-50">Confirmer</button>
+    </div>
+</form>
